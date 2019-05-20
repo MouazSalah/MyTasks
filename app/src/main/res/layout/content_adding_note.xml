@@ -1,0 +1,244 @@
+<?xml version="1.0"
+    encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".AddingNote"
+    tools:showIn="@layout/activity_adding_note">
+
+
+<!--
+    notetitle_edittext
+    notetime_edittext
+    notedate_edittext
+    notepriority_edittext-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/fields_layout"
+            >
+
+            // name layout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Label -->
+                <TextView
+                    android:text="Name"
+                    style="@style/TextfieldsStyles" />
+
+                <!-- Input fields -->
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="4dp"
+                    android:orientation="vertical">
+
+                    <!-- Name field -->
+                    <EditText
+                        android:id="@+id/notetitle_edittext"
+                        android:hint="title"
+                        android:inputType="textCapWords"
+                        style="@style/EditorFieldStyle" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            // time layout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Label -->
+                <TextView
+                    android:text="Time"
+                    style="@style/TextfieldsStyles" />
+
+                <!-- Input fields -->
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="4dp"
+                    android:orientation="vertical">
+
+                    <!-- Name field -->
+                    <EditText
+                        android:id="@+id/notetime_edittext"
+                        android:hint="enter time"
+                        android:inputType="textCapWords"
+                        style="@style/EditorFieldStyle" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            // date layout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Label -->
+                <TextView
+                    android:text="Date"
+                    style="@style/TextfieldsStyles" />
+
+                <!-- Input fields -->
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="4dp"
+                    android:orientation="vertical">
+
+                    <!-- Name field -->
+                    <EditText
+                        android:id="@+id/notedate_edittext"
+                        android:hint="enter date"
+                        android:inputType="textCapWords"
+                        style="@style/EditorFieldStyle" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            // priority layout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Label -->
+                <TextView
+                    android:text="Priority"
+                    style="@style/TextfieldsStyles" />
+
+                <!-- Input fields -->
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="4dp"
+                    android:orientation="vertical">
+
+                    <EditText
+                        style="@style/EditorFieldStyle"
+                        android:id="@+id/notepriority_edittext"
+                        android:hint="enter priority"
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            // AddingNote Button
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#555432"
+                    android:text="Save"
+                    android:id="@+id/InsertNewNote"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFF"
+                    />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/timedialog_linearlayout"
+            android:layout_width="250dp"
+            android:layout_height="400dp"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <TimePicker
+                android:id="@+id/timepicker"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="7"
+                android:timePickerMode="clock" />
+
+            <Button
+                android:id="@+id/savetime_button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/LightGrey"
+                android:onClick="SaveTime"
+                android:text="Save"
+                android:textColor="#000"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/datedialog_linearlayout"
+            android:layout_width="250dp"
+            android:layout_height="400dp"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <DatePicker
+                android:id="@+id/datepicker"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="7"
+                android:timePickerMode="clock" />
+
+            <Button
+                android:id="@+id/savedate_button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/LightGrey"
+                android:onClick="SaveDate"
+                android:text="Save"
+                android:textColor="#000"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
